@@ -5,13 +5,10 @@
 		</div>
 		<div class="column">
 			<transition name="component-fade" mode="out-in">
-				<!-- <component v-bind:is="view"></component> -->
-				<div key="3" v-if="showQuestion">
-					<card header="Question" :content="question"/>
-				</div>
-				<div key="1" v-if="!showQuestion">
-					<card header="Answer" :content="answer"/>
-				</div>
+				<card 
+					:header="showQuestion ? 'Question' : 'Answer'" 
+					:content="showQuestion ? question : answer" 
+					:key="showQuestion"/>
 			</transition>
 		</div>
 		<div class="column is-one-third next">

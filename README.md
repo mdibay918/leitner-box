@@ -1,6 +1,6 @@
-# flash-card
+# litner-box
 
-> Flash card management. 
+> Part of my 60-days VueJs projects.
 
 ## Build Setup
 
