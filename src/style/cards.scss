@@ -1,0 +1,88 @@
+.empty-cards-row {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	overflow-y: hidden;
+	& > div {
+		display: flex; 
+		flex: 1 1 auto; 
+		overflow-y: auto;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+%leitner-card-base {
+	display: flex; 
+	flex: 0 0 auto;
+	width: 200px;
+	height: 200px;
+	max-width: 200px;
+	max-height: 200px;
+	min-width: 200px;
+	min-height: 200px;
+	flex-direction: column; 
+	border: solid 1px $card-border-color;
+	overflow-y: hidden;
+}
+.new-card-adder {
+	@extend %leitner-card-base;
+	& >div {
+		text-align: center;
+	}
+	align-items: center;
+	justify-content: center;
+	
+}
+.leitner-card {
+	@extend %leitner-card-base;
+	font-size: $card-font-size;
+	& > header {
+		display: flex;
+		flex: 0 0 auto;
+		max-height: 30px; 
+		overflow-y: hidden;
+		height: 30px;
+		border-bottom: solid 1px $card-border-color;
+		font-weight: bold;
+		align-items: center;
+		.text {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			padding: 0 16px;
+		}
+		.close-icon {
+			flex: 1;
+			display: flex;
+			padding: 0 16px;
+			align-items: center;
+			justify-content: flex-end;
+			color: $alert-color;
+		}
+	}
+	.content {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		padding: 6px;
+		overflow-y: hidden;
+		.question {
+			display: flex;
+			flex-direction: column;
+			max-height: 50px;
+			min-height: 50px;
+			height: 50px;
+			justify-content:center;
+		}
+		.answer {
+			padding-top: 40px;
+			display: flex;
+			flex: 1 1 auto;
+			flex-direction: column;
+			min-height: 50px;
+			height: 60px;
+			justify-content:center;
+			overflow-y: auto;
+		}
+	}
+}

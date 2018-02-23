@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import LitnerReview from '@/views/LitnerReview'
+import LeitnerReview from '@/views/LeitnerReview'
+import EmptyLeitner from '@/views/EmptyLeitner'
 
 Vue.use(Router)
 
@@ -8,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'LitnerReview',
-      component: LitnerReview
+      name: 'EmptyLeitner',
+      component: EmptyLeitner
     }
   ]
 })

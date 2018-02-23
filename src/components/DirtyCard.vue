@@ -12,7 +12,7 @@
 </template>
 <script>
 export default {
-  name: 'card',
+  name: 'dirty-card',
   data () {
     return {
     }
