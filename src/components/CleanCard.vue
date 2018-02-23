@@ -19,7 +19,7 @@
             <div>
               <p>Answer</p>
             </div>
-            <div>
+            <div class="text-area">
                <textarea class="textarea is-small" type="text" placeholder="e.x: 4th of July!"></textarea>
             </div>
         </div>
