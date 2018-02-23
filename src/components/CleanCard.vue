@@ -37,7 +37,7 @@
 <script>
 export default {
   name: 'clean-card',
-  data () {
+  data() {
     return {
         _id: '', 
         _question: '', 
@@ -46,39 +46,41 @@ export default {
   }, 
   props: {
     "id": {
+      required: true,
       default: 1
     }, 
     "question": {
-      required: true, 
+      required: false, 
       default: ''
     }, 
     "answer": {
-      required: true, 
+      required: false, 
       default: ''
     }
   },
-  mounted() {
-    this._id = this.id;
+  created() {
+    this._data._id = this.id;
   }, 
   methods: {
-    emitNewData: function(value) {
+    emitNewdata: function() {
+
       this.$emit('UpdateCard', {
-        _id: this._id,
-        _question: this._question, 
-        _answer: this._answer
+        _id: this._data._id,
+        _question: this._data._question, 
+        _answer: this._data._answer
       });
     },
     updateAnswer: function(value) {
-      this._answer = value;
-      this.emitNewData();
+      this._data._answer = value;
+      this.emitNewdata();
     },
     updateQuestion: function(value) {
-      this._question = value;
-      this.emitNewData();
+      this._data._question = value;
+      this.emitNewdata();
     },
     removeCard: function() {
       this.$emit('RemoveCard', {
-        _id: this._id
+        _id: this._data._id
       });
     }
   }

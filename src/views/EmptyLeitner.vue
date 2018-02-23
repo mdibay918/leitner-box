@@ -25,7 +25,6 @@
 								v-for="(card, index) in cards"
 								:key="index"
 								:id="index+1"
-								v-bind="card"
 								v-on:UpdateCard="updateCard"
 								v-on:RemoveCard="removeCard"></clean-card>
 						</div>
@@ -34,11 +33,11 @@
 			</div>
 		</div>
 		<div class="leitner-controller">
-			<a class="button is-link is-small" 
+			<a class="button is-light is-small" 
 				:disabled="!hasDecks" 
 				@click="cancel">Cancel
 			</a>
-			<a class="button is-light is-small" 
+			<a class="button is-link is-small" 
 				:disabled="!hasDecks">Save
 			</a>
 		</div>
@@ -69,9 +68,9 @@ export default {
 		},
 		updateCard: function(data) {
 			if (data.hasOwnProperty('_id')) {
-				this.cards[data._id]	
+				this.cards[data._id-1]	
 					.question = data._question; 
-				this.cards[data._id] 
+				this.cards[data._id-1] 
 					.answer = data._answer;
 			}
 		}, 
