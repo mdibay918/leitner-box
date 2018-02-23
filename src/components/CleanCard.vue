@@ -46,7 +46,7 @@ export default {
   }, 
   props: {
     "id": {
-      default: 0
+      default: 1
     }, 
     "question": {
       required: true, 

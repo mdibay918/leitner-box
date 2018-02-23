@@ -14,17 +14,17 @@
 					</div>
 				</div>
 				<div class="empty-cards-row">
-					<div class="columns is-centered">
-						<div class="column">
+					<div class="card-columns">
+						<div class="card-row">
 							<div class="new-card-adder" 
 								@click="addNewCard">
 								<div><i class="fas fa-plus-circle"></i></div>
 								<div>Add Card</div>
 							</div>
-						</div>
-						<div class="column" v-for="(card, index) in cards">
 							<clean-card 
-								:id="index"
+								v-for="(card, index) in cards"
+								:key="index"
+								:id="index+1"
 								v-bind="card"
 								v-on:UpdateCard="updateCard"
 								v-on:RemoveCard="removeCard"></clean-card>
@@ -76,8 +76,8 @@ export default {
 			}
 		}, 
 		removeCard: function(data) {
-			if (data.hasOwnProperty('_id') && this.cards.length-1 >= data._id) {
-				this.cards.splice(data._id, 1);
+			if (data.hasOwnProperty('_id') && this.cards.length-1 >= data._id-1) {
+				this.cards.splice(data._id-1, 1);
 			}
 		}
 	},

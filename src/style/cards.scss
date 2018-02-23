@@ -23,6 +23,7 @@
 	flex-direction: column; 
 	border: solid 1px $card-border-color;
 	overflow-y: hidden;
+	margin: 6px
 }
 .new-card-adder {
 	@extend %leitner-card-base;
