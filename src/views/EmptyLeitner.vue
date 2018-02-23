@@ -7,7 +7,10 @@
 						<p>Deck name</p>
 					</div>
 					<div>
-						<input class="input is-small" type="text" placeholder="e.x: Math Deck">		
+						<input class="input is-small" 
+							type="text" 
+							placeholder="e.x: Math Deck"
+							v-model="deckName">		
 					</div>
 				</div>
 				<div class="empty-cards-row">
@@ -20,7 +23,11 @@
 							</div>
 						</div>
 						<div class="column" v-for="(card, index) in cards">
-							<clean-card :number="index"></clean-card>
+							<clean-card 
+								:id="index"
+								v-bind="card"
+								v-on:UpdateCard="updateCard"
+								v-on:RemoveCard="removeCard"></clean-card>
 						</div>
 					</div> 	
 				</div>
@@ -46,7 +53,8 @@ export default {
 	},
 	data() {
 		return {
-			cards: []
+			cards: [], 
+			deckName: ''
 		}
 	}, 
 	methods: {
@@ -54,7 +62,23 @@ export default {
 			this.cards.splice(0, this.cards.length);
 		}, 
 		addNewCard: function() {
-			this.cards.push({});
+			this.cards.push({
+				question: '', 
+				answer: ''
+			});
+		},
+		updateCard: function(data) {
+			if (data.hasOwnProperty('_id')) {
+				this.cards[data._id]	
+					.question = data._question; 
+				this.cards[data._id] 
+					.answer = data._answer;
+			}
+		}, 
+		removeCard: function(data) {
+			if (data.hasOwnProperty('_id') && this.cards.length-1 >= data._id) {
+				this.cards.splice(data._id, 1);
+			}
 		}
 	},
 	computed: {
