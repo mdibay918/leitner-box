@@ -1,0 +1,58 @@
+{
+  "decks": [
+    {
+      "deck_name": "math",
+      "cards": [
+        {
+          "question": "What is your name?",
+          "answer": "My name is mohammad"
+        },
+        {
+          "question": "What is your last name?",
+          "answer": "Dibay Moghadam"
+        },
+        {
+          "question": "What is your nick name?",
+          "answer": "Sina"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "deck_name": "physics",
+      "cards": [
+        {
+          "question": "What is your name?",
+          "answer": "My name is mohammad"
+        },
+        {
+          "question": "What is your last name?",
+          "answer": "Dibay Moghadam"
+        },
+        {
+          "question": "What is your nick name?",
+          "answer": "Reza"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "deck_name": "chemistry",
+      "cards": [
+        {
+          "question": "What is your name?",
+          "answer": "My name is mohammad"
+        },
+        {
+          "question": "What is your last name?",
+          "answer": "Dibay Moghadam"
+        },
+        {
+          "question": "What is your nick name?",
+          "answer": "Reza"
+        }
+      ],
+      "id": 3
+    }
+  ]
+}
