@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import LeitnerApp from './LeitnerApp'
 import router from './router'
-import axios from 'axios'
+import axios from 'axios';
 
 require('./style/app.scss');
 require('../node_modules/bulma/bulma.sass');
+
+window.axios = axios;
 
 Vue.config.productionTip = false
 

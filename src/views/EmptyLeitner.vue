@@ -1,6 +1,8 @@
 <template>
 	<div class="view-container">
-		<form @submit.prevent="onSubmit" v-on:keydown="form.errors.clear($event.target.name)">
+		<form @submit.prevent="onSubmit" 
+			v-on:keydown="form.errors.clear($event.target.name)"
+			class="leitner-form">
 		<div class="leitner-canvas">
 			<div class="empty-deck-view">
 				<div class="deck-name-row">
@@ -12,7 +14,7 @@
 							type="text" 
 							placeholder="e.x: Math Deck"
 							v-model="form.deckName">		
-						<span class="help is-danger" v-if="errors.has('deckName')" v-text="errors.get('deckName')"></span>
+						<span class="help is-danger" v-if="form.errors.has('deckName')" v-text="form.errors.get('deckName')"></span>
 					</div>
 				</div>
 				<div class="empty-cards-row">
@@ -40,7 +42,7 @@
 			</a>
 			<a class="button is-link is-small" 
 				:disabled="form.errors.hasError()"
-				@click="save">Save
+				@click="onSubmit">Save
 			</a>
 		</div>
 	</form>
@@ -48,7 +50,7 @@
 </template>
 <script>
 import CleanCard from '@/components/CleanCard'
-import EmptyLeitnerForm from '@/assets/EmptyLeitnerForm'
+import EmptyLeitnerForm from '@/assets/EmptyLeitnerForm.js'
 
 export default {
 	name: 'leitnerbox', 
@@ -65,25 +67,25 @@ export default {
 	}, 
 	methods: {
 		cancel: function() {
-			this.cards.splice(0, this.cards.length);
+			this.form.cards.splice(0, this.form.cards.length);
 		}, 
 		addNewCard: function() {
-			this.cards.push({
+			this.form.cards.push({
 				question: '', 
 				answer: ''
 			});
 		},
 		updateCard: function(data) {
 			if (data.hasOwnProperty('_id')) {
-				this.cards[data._id-1]	
+				this.form.cards[data._id-1]	
 					.question = data._question; 
-				this.cards[data._id-1] 
+				this.form.cards[data._id-1] 
 					.answer = data._answer;
 			}
 		}, 
 		removeCard: function(data) {
-			if (data.hasOwnProperty('_id') && this.cards.length-1 >= data._id-1) {
-				this.cards.splice(data._id-1, 1);
+			if (data.hasOwnProperty('_id') && this.form.cards.length-1 >= data._id-1) {
+				this.form.cards.splice(data._id-1, 1);
 			}
 		},
 		onSubmit: function() {
@@ -97,25 +99,10 @@ export default {
 					console.log(error);
 				});
 		},
-		// 	axios
-				
-		// 		.then(resp => {
-		// 			console.log("success");
-		// 			this.deckName = '';
-		// 			this.cards.splice(0, this.cards.length);
-		// 		})
-		// 		.catch(
-					
-		// 			err => {
-		// 				console.log("error happened");
-		// 				this.errors.record(err.response.data.errors)
-		// 			}
-		// 		)	
-		// }
 	},
 	computed: {
 		hasDecks() {
-			return this.cards.length > 0;
+			return this.form.cards.length > 0;
 		}
 	}
 }

@@ -1,6 +1,7 @@
-import Errors from './Errors'
+import Errors from './Errors.js'
+import axios from 'axios'
 
-class Form {
+export default class Form {
 	constructor(data) {
 		this.originalData = data;
 		for (let field in data) {
@@ -41,8 +42,4 @@ class Form {
 	onSuccess(data) {
 		this.reset();
 	}
-}
-
-export default {
-	Form: Form
 }

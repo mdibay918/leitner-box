@@ -42,13 +42,26 @@
 }
 .leitner-side-nav-items-list {
 	display: felx;
-	flex: 1 1 auto;
+	flex-direction: column;
+	font-size: $font-size;
+	flex: 0 0 auto; 
 	overflow-y: auto;
 	padding: 6px;
+}
+.leitner-side-nav-items-list-item {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center; 
+	align-items: center;
 }
 .leitner-content-area {
 	display: flex;
 	flex: 1 1 auto;
+}
+.leitner-form {
+	display: flex; 
+	flex: 1 1 auto;
+	flex-direction: column;
 }
 .view-container {
 	display: flex;

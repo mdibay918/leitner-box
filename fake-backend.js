@@ -12,6 +12,7 @@
 	  	var _errors = {
 	  	};
 		var hasError = false;
+		console.log(req.body);
 	    if (!req.body.deckName || req.body.deckName.trim().length === 0) {
 	    	_errors['deckName'] = 'Deck name field is required.';
 	    	hasError = true;
